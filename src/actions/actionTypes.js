@@ -1,0 +1,3 @@
+export const UPDATE_TWEET = 'UPDATE_TWEET';
+export const UPDATE_RESULTS = 'UPDATE_RESULTS';
+export const SET_HIGHLIGHT = 'SET_HIGHLIGHT';
