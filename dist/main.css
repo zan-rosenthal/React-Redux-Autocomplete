@@ -125,6 +125,10 @@ ul{
 	margin-top: 5px;
 }
 
+#highlighted>.user_name{
+	color: #e6e6e6
+}
+
 /******Confirmation Modal******/
 .modal{
 	color: #666;

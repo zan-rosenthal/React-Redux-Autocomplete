@@ -36,7 +36,6 @@ export function fetchResults(searchTerm) {
   return dispatch => {
       return axios.get(searchUsersURL, { params: { username: searchTerm } })
                 .then(response => {
-                  console.log(response);
                   dispatch(updateResults(response.data.users));
                 })
                 .catch(err=>{

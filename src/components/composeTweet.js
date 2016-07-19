@@ -14,15 +14,15 @@ class ComposeTweet extends Component {
 
 
   handleKeyDown(event){
-    if (ComposeTweet.eventHandlers[event.key] && this.props.results.length > 0) {
+    if (ComposeTweet.eventHandlers[event.key]) {
       ComposeTweet.eventHandlers[event.key].call(this, event);
     }
   }
 
   handleSubmit(){
     let { updateTweet, updateResults } = this.props.actions;
-    // updateTweet('');
-    // updateResults([]);
+    updateTweet('');
+    updateResults([]);
     this.refs.modal.show();
     setTimeout(this.closeDialog.bind(this), 3000)
   }
@@ -61,14 +61,6 @@ class ComposeTweet extends Component {
   }
 }
 
-
-ComposeTweet.defaultProps ={
-  tweet: '',
-  results: [],
-  highlightedIndex: -1,
-  actions: {}
-}
-
 ComposeTweet.propTypes = {
   tweet: PropTypes.string.isRequired,
   results: PropTypes.array.isRequired,
@@ -95,11 +87,11 @@ ComposeTweet.eventHandlers = {
     event.preventDefault();
 
     let {tweet, results, highlightedIndex, actions } = this.props;
-    // if(results.length > 0){
+    if(results.length > 0){
       actions.updateTweet(tweet, results[highlightedIndex]);
-    // }else{
-    //   this.handleSubmit();
-    // }
+    }else{
+      this.handleSubmit();
+    }
   }
 };
 

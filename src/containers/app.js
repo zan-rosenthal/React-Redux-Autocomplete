@@ -17,12 +17,6 @@ class App extends Component {
   }
 }
 
-App.defaultProps ={
-  tweet: '',
-  results: [],
-  highlightedIndex: -1,
-  actions: {}
-}
 
 App.propTypes = {
   tweet: PropTypes.string.isRequired,
