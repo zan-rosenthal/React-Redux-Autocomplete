@@ -6,7 +6,7 @@ const initialState = {
   highlightedIndex: 0
 };
 
-function autoComplete(state = initialState, action) {
+function typeAhead(state = initialState, action) {
   switch (action.type) {
     case types.UPDATE_TWEET:
       return {
@@ -28,4 +28,4 @@ function autoComplete(state = initialState, action) {
     }
 }
 
-export default autoComplete;
+export default typeAhead;

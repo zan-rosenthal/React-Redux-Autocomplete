@@ -2,16 +2,16 @@ import React from 'react';
 import {render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import autoComplete from './reducers/autoComplete';
+import typeAhead from './reducers/typeAhead';
 import thunk from 'redux-thunk';
 import { checkTweet } from './middleware/tweetMiddleware'
 
 import App from './containers/app';
 
 const store = createStore(
-  autoComplete,
-  applyMiddleware(checkTweet, thunk)
-)
+  typeAhead,
+  applyMiddleware(thunk, checkTweet)
+);
 
 render(
   <Provider store={store}>

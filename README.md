@@ -1,10 +1,12 @@
 # Twitter Compose
 
-##Set up server
+Hi good folks at Sprout,
 
-Use `npm install` to install all dependencies.
+I've included all dependencies and already built and bundled everything  and altered the initial server to also serve page. 
 
-Use `npm run start` to start the Twitter lookup server
+So, all you have to do is open your terminal and run `npm run start`  and navigate to `http://localhost:3001/`. 
 
-Navigate to [http://localhost:3001/](http://localhost:3001/) to ensure the local server is responding to requests. If the URL loads, attempt to make a sample user search request http://localhost:3001/twitter/user/search?username=chicago
+Have fun,
+
+Zan
 

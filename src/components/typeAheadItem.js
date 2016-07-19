@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class AutoCompleteItem extends Component {
+class TypeAheadItem extends Component {
+
   handleMouseEnter(){
     let { setHighlight, index } = this.props;
     setHighlight(index);
@@ -16,11 +17,13 @@ export default class AutoCompleteItem extends Component {
   }
 
   render(){
+    //setHighlight changes currently highlighted index
+    //highlightedIndex changes with keyup, keydown, and when user hovers over an item
     const { highlightedIndex, index, user, updateTweet } = this.props;
     const highlighted = highlightedIndex === index ? "highlighted" : "";
 
     return(
-      <li className="autocomplete-item centered"
+      <li className="typeahead-item centered"
         id={highlighted}
         onMouseEnter={this.handleMouseEnter.bind(this)}
         onMouseLeave={this.handleMouseLeave.bind(this)}
@@ -33,3 +36,14 @@ export default class AutoCompleteItem extends Component {
   }
 
 };
+
+TypeAheadItem.propTypes ={
+  index:PropTypes.number,
+  user:PropTypes.object,
+  highlightedIndex:PropTypes.number,
+  updateTweet:PropTypes.func,
+  setHighlight:PropTypes.func
+};
+
+
+export default TypeAheadItem;

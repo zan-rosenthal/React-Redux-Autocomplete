@@ -24,12 +24,10 @@ app.use(morgan('dev'));
 
 //Set up routes. TODO: Pull routes out into separate file.
 // app.use('/', express.static('dist'));
-
-app.get('/', (req, res) => {
-	res.status(200).send({
-		data: 'Successful request',
-	});
-});
+//
+// app.get('/', (req, res) => {
+// 	res.status(200).render('index.html');
+// });
 
 app.get('/twitter/user/search', (req, res) => {
 	const username = req.query.username;

@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react';
-import AutoCompleteItem from './autoCompleteItem'
+import TypeAheadItem from './typeAheadItem'
 
-class AutoCompleteResults extends Component {
+class TypeAheadMenu extends Component {
 
   render() {
       let index = -1;
       const {highlightedIndex, results, updateTweet, setHighlight } = this.props;
       return (
-        <ul id="autocomplete-dropdown" >
-          {results.map((result) => {
-            return <AutoCompleteItem
+        <ul id="typeahead-menu" >
+          {results.map(result => {
+            return <TypeAheadItem
                      index={index+=1}
                      key={result.id}
                      user={result}
@@ -22,7 +22,11 @@ class AutoCompleteResults extends Component {
   }
 }
 
-AutoCompleteResults.propTypes = { results: PropTypes.array };
-AutoCompleteResults.defaultProps = { results: [] };
+TypeAheadMenu.propTypes = {
+  results: PropTypes.array,
+  highlightedIndex: PropTypes.number,
+  updateTweet:PropTypes.func,
+  setHighlight: PropTypes.func
+};
 
-export default AutoCompleteResults;
+export default TypeAheadMenu;
