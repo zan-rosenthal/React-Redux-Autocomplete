@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 class TypeAheadItem extends Component {
 
   handleMouseEnter(){
-    let { setHighlight, index } = this.props;
+    const { setHighlight, index } = this.props;
     setHighlight(index);
   }
 
@@ -12,7 +12,7 @@ class TypeAheadItem extends Component {
   }
 
   handleClick(){
-    let {  user, updateTweet } = this.props;
+    const {  user, updateTweet } = this.props;
     updateTweet(null, user)
   }
 

@@ -8,8 +8,7 @@ class ComposeTweet extends Component {
   }
 
   handleChange (event){
-    let inputValue = event.target.value;
-    this.props.actions.updateTweet(inputValue);
+    this.props.actions.updateTweet(event.target.value);
   }
 
 
@@ -20,7 +19,7 @@ class ComposeTweet extends Component {
   }
 
   handleSubmit(){
-    let { updateTweet, updateResults } = this.props.actions;
+    const { updateTweet, updateResults } = this.props.actions;
     updateTweet('');
     updateResults([]);
     this.refs.modal.show();
@@ -32,7 +31,7 @@ class ComposeTweet extends Component {
   }
 
   render(){
-    let { tweet, results, highlightedIndex, actions } = this.props;
+    const { tweet, results, highlightedIndex, actions } = this.props;
     return (
       <div id="compose" className="centered">
         <form>
@@ -73,20 +72,20 @@ ComposeTweet.propTypes = {
 ComposeTweet.eventHandlers = {
   ArrowDown:function(event) {
     event.preventDefault();
-    let { highlightedIndex, actions } = this.props;
+    const { highlightedIndex, actions } = this.props;
     actions.setHighlight(highlightedIndex+1);
   },
 
   ArrowUp: function (event) {
     event.preventDefault();
-    let { highlightedIndex, actions } = this.props;
+    const { highlightedIndex, actions } = this.props;
     actions.setHighlight(highlightedIndex-1);
   },
 
   Enter: function (event) {
     event.preventDefault();
 
-    let {tweet, results, highlightedIndex, actions } = this.props;
+    const {tweet, results, highlightedIndex, actions } = this.props;
     if(results.length > 0){
       actions.updateTweet(tweet, results[highlightedIndex]);
     }else{

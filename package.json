@@ -1,11 +1,11 @@
 {
   "name": "twitter-compose-server",
   "version": "0.1.0",
-  "description": "Twitter Screenname Autocomplete Server",
+  "description": "React/Redux Typeahead",
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Sprout Social",
+  "author": "Zan Rosenthal",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.10.4",
@@ -26,14 +26,10 @@
     "axios": "^0.13.0",
     "babel-loader": "^6.2.4",
     "babel-preset-stage-2": "^6.11.0",
-    "boron": "^0.2.3",
-    "classnames": "^2.2.5",
     "cors": "^2.7.1",
     "morgan": "^1.7.0",
     "react": "^15.2.1",
-    "react-addons-pure-render-mixin": "^15.2.1",
     "react-dom": "^15.2.1",
-    "react-modal-dialog": "^3.0.2",
     "react-redux": "^4.4.5",
     "react-skylight": "^0.4.0",
     "redux": "^3.5.2",

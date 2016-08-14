@@ -1,7 +1,5 @@
 const Twitter = require('twitter');
 const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
 
 const app = express();
 
@@ -14,20 +12,28 @@ const client = new Twitter({
 });
 
 //Setup Middlewares
+//I used CORS in development when serving from webpack-dev-server on localhost:8080
 //cors: Allow for Cross Origin requests for specific domains
 //morgan: More detailed logging. 'dev': multicolored, concise, descriptive
-const corsOptions = {
-	origin: 'http://localhost:8080'
-}
-app.use(cors(corsOptions));
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development'){
+	const morgan = require('morgan');
+	const cors = require('cors');
 
-//Set up routes. TODO: Pull routes out into separate file.
-// app.use('/', express.static('dist'));
-//
-// app.get('/', (req, res) => {
-// 	res.status(200).render('index.html');
-// });
+	const corsOptions = {
+		origin: 'http://localhost:8080'
+	}
+	app.use(cors(corsOptions));
+	app.use(morgan('dev'));
+}
+
+
+
+//Set up routes.
+app.use('/', express.static('dist'));
+
+app.get('/', (req, res) => {
+	res.status(200).render('index.html');
+});
 
 app.get('/twitter/user/search', (req, res) => {
 	const username = req.query.username;

@@ -7,8 +7,8 @@ import { updateResults, fetchResults } from '../actions/actions.js'
 export const checkTweet = store => next => action => {
   if (action.type === types.UPDATE_TWEET){
     if (action.user){
-      let tweet = action.tweet || store.getState().tweet;
-      let user = action.user;
+      const tweet = action.tweet || store.getState().tweet;
+      const user = action.user;
       action.tweet = autoComplete(tweet, user);
       store.dispatch(updateResults([]));
     }else{
@@ -22,7 +22,7 @@ function autoSuggest(tweet, store){
   //Checks for last occurence of substring starting with @
   let searchTerm = tweet.match(/@\w+$/g);
   searchTerm = searchTerm && searchTerm[0].substring(1);
-  let shouldSearch = searchTerm && searchTerm.length > 1;
+  const shouldSearch = searchTerm && searchTerm.length > 1;
 
   if(shouldSearch){
     store.dispatch(fetchResults(searchTerm));
@@ -32,8 +32,8 @@ function autoSuggest(tweet, store){
 }
 
 function autoComplete(tweet, user){
-    let twitterHandle = user.screen_name;
-    let handleIndex = tweet.lastIndexOf('@');
-    let updatedTweet = tweet.substring(0, handleIndex) + '@' + twitterHandle + ' ';
+    const twitterHandle = user.screen_name;
+    const handleIndex = tweet.lastIndexOf('@');
+    const updatedTweet = tweet.substring(0, handleIndex) + '@' + twitterHandle + ' ';
     return updatedTweet;
 }
